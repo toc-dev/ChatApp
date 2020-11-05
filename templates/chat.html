@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Chat Page</title>
+    <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/chat_style.css') }}" type="text/css" media="screen" />
+</head>
+<body>
+    <!--Navigation bar-->
+    <nav>
+
+    </nav>
+
+    <div id="main-section">
+
+
+        <!--Room selection-->
+        <nav id="sidebar">
+            <!--<p class="select-room">-->
+                
+            <!--</p>-->
+           <h4>ROOMS</h4>
+            {% for room in rooms %}
+            <p class="select-room">{{ room|title }}</p>
+            {% endfor %}
+            <!--New room creation-->
+            <form id="new-room" method="post">
+                <div>
+                    <input type="text" autocomplete="off" placeholder="Create New room" id="channel-name" />
+                    <input type="submit" value="Submit">
+                </div>
+            </form>
+        </nav>
+        <!--Message area-->
+        <div id="rightside-panel">
+            <!--Display message-->
+            <div class="system-msg">
+                {% for msg in four %}
+                <p class="my-msg"><span class="my-username">{{msg["username"]}}</span><br>{{msg["msg"]}}<br><span class="my-username">{{msg["time_stamp"]}}</span></p>
+                {% endfor %}
+            </div>
+            <div class="system-msg" id="display-message-section"></div>
+                <!--Input message-->
+                <div id="input-area">
+                    <input type="text" id="user_message" placeholder="Type
+                       here..." autocomplete="off" />
+                    <button type="button" id="send_message">SEND</button>
+                </div>
+            </div>
+        </div>
+
+    <!--Get username-->
+    <script type="text/javascript">
+        const username = sessionStorage.getItem("username");
+    </script>
+
+    <script src="{{ url_for('static', filename='scripts/chat_page.js') }}"></script>
+    <!--SocketIO JS-->
+
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
+    <script src="{{ url_for('static', filename='scripts/socketio.js') }}"></script>
+</body>
+</html>

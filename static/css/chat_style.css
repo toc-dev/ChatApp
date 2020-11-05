@@ -1,0 +1,208 @@
+﻿@charset "utf-8";
+@import url(http://weloveiconfonts.com/api/?family=fontawesome);
+
+body {
+    background-image: url("background.jpg");
+}
+.wrapper {
+    display: flex;
+}
+
+#main-section {
+    overflow: hidden; /* Make this div contain its floated children */
+    width: 100%;
+}
+
+#sidebar {
+    margin-top: 2em;
+    float: left; /* Make this div as wide as its contents */
+    min-height: 96vh;
+    padding-left: 1em;
+    padding-top: 3em;
+    padding-right: 1em;
+    border-right: 0.5px solid #898c91;
+}
+
+    #sidebar p {
+        padding-left: 2em;
+        padding-right: 2em;
+        /*additional*/
+        margin-left: 7em;
+        margin-right: 1em;
+        padding: 0.5em 0.5em 0.5em 1em;
+        border-radius: 5px;
+        border-color: #12e652;
+        border-width: 1px;
+        border-style: solid;
+        background-color: #67fa81;
+        /* animation */
+        animation-name: fadeIn;
+        animation-duration: 0.75s;
+        animation-fill-mode: forwards;
+        animation-timing-function: ease-in-out;
+        font-family: sans-serif;
+    }
+
+        #sidebar p:hover {
+            background-color: #ffc107;
+        }
+
+    #sidebar h4 {
+        padding-left: 0.5em;
+        margin-left: 7em;
+        margin-right: 1em;
+        padding: 0.5em 0.5em 0.5em 1em;
+        border-radius: 5px;
+        border-color: #206ED2;
+        font-family: sans-serif;
+    }
+
+
+    #sidebar.view-sidebar {
+        display: none;
+    }
+
+#show-sidebar-button {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.5s;
+    color: #335177;
+}
+#send_message {
+    margin: 45px 0 30px 0;
+    height: 30px;
+    width: 50px;
+    font-size: 12px;
+    color: white;
+    outline: none;
+    cursor: pointer;
+    font-weight: bold;
+    background: #12e652;
+    border-radius: 3px;
+    border: 1px solid #3949AB;
+    transition: .5s;
+}
+
+@media (max-width: 567px) {
+    #sidebar {
+        display: none;
+    }
+
+        #sidebar.view-sidebar {
+            display: block;
+        }
+
+    #show-sidebar-button {
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+#rightside-panel {
+    overflow: hidden; /* Make this div take up the rest of the horizontal space, and no more */
+}
+
+#display-message-section {
+    margin-top: 5em;
+    min-height: 82vh;
+    max-height: 82vh;
+    overflow-y: auto; /*Make  this section scrolable */
+}
+
+#user_message {
+    padding-left: 1em;
+    padding-right: 1em;
+    bottom: 0;
+    height: 40px;
+    width: 250px;
+    padding: 0 5px;
+    font-size: 18px;
+    outline: none;
+    border: 1px solid silver;
+}
+
+input[type=text]:focus {
+    border-color: #ffc107;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset, 0px 0px 10px #ffc107;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.others-msg {
+    margin-right: 7em;
+    margin-left: 1em;
+    padding: 0.5em 0.5em 0.5em 1em;
+    border-radius: 5px;
+    border-color: grey;
+    border-width: 0.5px;
+    border-style: solid;
+    background-color: white;
+    /* animation */
+    animation-name: fadeIn;
+    animation-duration: 0.75s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+}
+
+.my-msg {
+    margin-left: 7em;
+    margin-right: 1em;
+    padding: 0.5em 0.5em 0.5em 1em;
+    border-radius: 5px;
+    border-color: #206ED2;
+    border-width: 1px;
+    border-style: solid;
+    /* animation */
+    animation-name: fadeIn;
+    animation-duration: 0.75s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+    background-color: #aed6ab;
+}
+
+.system-msg {
+    margin-right: 7em;
+    margin-left: 1em;
+    padding: 0.5em 0.5em 0.5em 1em;
+    color: rgb(0, 0, 0);
+    font-size: 0.9em;
+}
+
+.timestamp {
+    color: #656d78;
+    font-size: 0.7em;
+}
+
+.other-username {
+    font-weight: bold;
+    font-size: 1.1em;
+    color: #206ED2;
+}
+
+.my-username {
+    font-weight: bold;
+    font-size: 1.1em;
+    color: #1373ec;
+}
+
+#msg-input {
+    border-color: #ffc107;
+    border-width: 5px;
+}
+
+#get-username {
+    display: none !important;
+}

@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>registration</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/regstyle.css') }}" type="text/css" media="screen" />
+
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="label">Registration</h1>
+        <form class="login_form" action="login" method="post" name="form" onsubmit="return validated()">
+            
+            <div class="font">Username</div>
+            <input type="text" name="username" placeholder="Username" />
+            <div id="username_error">Please fill up your Username</div>
+
+            <div class="font font2">Password</div>
+            <input type="password" name="password" placeholder="Password" />
+            <div id="password_error">Please fill up your Password</div>
+
+            <div class="font font2">Confirm Password</div>
+            <input type="password" name="confirm_password" placeholder="Confirm Password" />
+            <div id="c_password_error">Passwords do not match</div>
+
+            <button type="submit">Register</button>
+
+            <script src="{{ url_for('static', filename='scripts/registration.js') }}"></script>
+            <!--<input id="rgstr-btn" type="submit" value="Register" onclick="store()" />-->
+        </form>
+        <a href="login">Already registered? Click to login</a>
+    </div>
+    </body>
+</html>
